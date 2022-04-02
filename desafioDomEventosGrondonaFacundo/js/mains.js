@@ -26,7 +26,6 @@ function disenharCircunferencia(x, y, radio, color) {
 function limpiarPantalla() {
 
 	pincel.clearRect(0, 0, 600, 400);
-
 }
 
 function disenharObjetivo(x, y, x1, y1) {
@@ -70,18 +69,7 @@ function disparar(evento) {
 	if (vidas == 0) {
 		console.log("No te quedan vidas");
 		focus.jugarotravez;
-
-
-	} else {
-
-		console.log("Perdiste una vida");
-		vidas = vidas - 1;
-		console.log(`Te quedan ${vidas} intentos`);
-
-
-	}
-
-	if ((x < xAleatorio + radio) &&
+	} else if ((x < xAleatorio + radio) &&
 		(x > xAleatorio - radio) &&
 		(y < yAleatorio + radio) &&
 		(y > yAleatorio - radio) ||
@@ -91,20 +79,32 @@ function disparar(evento) {
 		(y1 > yAleatorio1 - radio)) {
 
 		puntos = puntos + 100;
+		document.querySelector(`#pts`).innerHTML = puntos;
 		console.log(puntos);
 		console.log("Tiro Certero");
 
-	}
-}
-            
-	pantalla.onclick = disparar;
+	} else {
 
-	let jugarotravez=document.getElementById("otraVez");
-	jugarotravez.onclick = () => {
-		vidas= vidas + 3;
-		puntos = 0;
-		console.log(`Vuelves a tener ${vidas} intentos`);
+		console.log("Perdiste una vida");
+		vidas = vidas - 1;
+		document.querySelector(`#vS`).innerHTML = vidas;
+		console.log(`Te quedan ${vidas} intentos`);
+
+
 	}
+
+}
+
+pantalla.onclick = disparar;
+
+let jugarotravez = document.getElementById("otraVez");
+jugarotravez.onclick = () => {
+	vidas =  3;
+	puntos = 0;
+	document.querySelector(`#pts`).innerHTML = puntos;
+	document.querySelector(`#vS`).innerHTML = vidas;
+	console.log(`Vuelves a tener ${vidas} intentos`);
+}
 	
 	
 
