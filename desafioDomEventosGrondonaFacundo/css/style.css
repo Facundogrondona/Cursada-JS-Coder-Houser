@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .bodyGeneral {
+    background-color: rgb(129, 126, 126);
+    font-family: 'Poppins', sans-serif;
+    -webkit-text-decoration-color: #2f2546;
+            text-decoration-color: #2f2546;
+    padding: 60px 10px 0px;
+    /* Medida movil */
+    /* padding: 90px 20px 0px; /* Medida pantalla */
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    
+  }
+
+  header {
+    height: 65px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #4b98f5;
+  }
+  .centro{
+      text-align: center;
+  }
+
+  .container{
+    margin-top: 70px;
+    background-color: aliceblue;
+
+  }
+
+  .borde{
+      border: solid;
+      border-radius: 5px;
+      border-color: rgb(3, 99, 99);
+      background-color: #4bf5dc;
+      
+    
+    
+  }
+
+  .margen{
+      margin: 10px;
+  }
