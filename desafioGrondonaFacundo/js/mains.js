@@ -31,8 +31,8 @@ let juagadores = [{
 
 ];
 console.table(juagadores);
-localStorage.clear()
-
+localStorage.clear();
+sessionStorage.clear();
 sessionStorage.setItem('bienvenida', '¡Lautaro!');
 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor)};

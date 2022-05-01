@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proyecto Final Facundo Grondona Curso JavaScritp Coder House</title>
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/estilos.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body class="bodyPaciente">
+	
+	<header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="../index.html#quienSoy">Sintaxis</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./servicios.html">Servicios</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./contactos.html">Contacto</a>
+                  </li>
+                  <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Profesionales
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="./pacientes.html">Mis Pacientes</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+    </header>
+
+	<main>
+		<section class="container">
+			<h2>Mis pacientes</h2>
+			<label for="filtrar-tabla"></label>
+			<input type="text" name="filtro" id="filtrar-tabla" placeholder="Digite el nombre del paciente">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Peso(kg)</th>
+						<th>Altura(m)</th>
+						<th>Gordura Corporal(%)</th>
+						<th>IMC</th>
+					</tr>
+				</thead>
+				<tbody id="tabla-pacientes">
+					<tr class="paciente">
+						<td class="info-nombre">Pablo</td>
+						<td class="info-peso">100</td>
+						<td class="info-altura">2.00</td>
+						<td class="info-gordura">10</td>
+						<td class="info-imc">0</td>
+					</tr>
+
+					<tr class="paciente">
+						<td class="info-nombre">Juan</td>
+						<td class="info-peso">73</td>
+						<td class="info-altura">1.80</td>
+						<td class="info-gordura">40</td>
+						<td class="info-imc">0</td>
+					</tr>
+
+					<tr class="paciente">
+						<td class="info-nombre">Erica</td>
+						<td class="info-peso">54</td>
+						<td class="info-altura">1.70</td>
+						<td class="info-gordura">14</td>
+						<td class="info-imc">0</td>
+					</tr>
+
+					<tr class="paciente">
+						<td class="info-nombre">Diego</td>
+						<td class="info-peso">85</td>
+						<td class="info-altura">1.73</td>
+						<td class="info-gordura">24</td>
+						<td class="info-imc">0</td>
+					</tr>
+					<tr class="paciente">
+						<td class="info-nombre">Tatiana</td>
+						<td class="info-peso">46</td>
+						<td class="info-altura">1.55</td>
+						<td class="info-gordura">19</td>
+						<td class="info-imc">0</td>
+					</tr>
+					<tr class="paciente">
+						<td class="info-nombre">Pedro</td>
+						<td class="info-peso">70</td>
+						<td class="info-altura">1.68</td>
+						<td class="info-gordura">23</td>
+						<td class="info-imc">0</td>
+					</tr>
+					<tr class="paciente">
+						<td class="info-nombre">Maria</td>
+						<td class="info-peso">55</td>
+						<td class="info-altura">1.60</td>
+						<td class="info-gordura">17</td>
+						<td class="info-imc">0</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<span id="error-ajax" class="invisible">Error al buscar los pacientes</span>
+
+			<button id="buscar-paciente" class="boton bto-principal btn btn-primary">
+				Buscar Pacientes
+			</button>
+
+		</section>
+	</main>
+
+	<section class="container">
+		<h2 id="titulo-form">Adicionar nuevo paciente</h2>
+		<ul id="mensajes-errores"></ul>
+
+
+		<form id="form-adicionar">
+			<div class="grupo">
+				<label for="nombre">Nombre:</label>
+				<input id="nombre" name="nombre" type="text" placeholder="digite el nombre del paciente" class="campo">
+			</div>
+			<div class="grupo">
+				<label for="peso">Peso:</label>
+				<input id="peso" name="peso" type="text" placeholder="digite el peso del paciente"
+					class="campo campo-medio">
+			</div>
+			<div class="grupo">
+				<label for="altura">Altura:</label>
+				<input id="altura" name="altura" type="text" placeholder="digite la altura del paciente"
+					class="campo campo-medio">
+			</div>
+			<div class="grupo">
+				<label for="gordura">% de Gordura:</label>
+				<input id="gordura" type="text" placeholder="digite el porcentaje de gordura del paciente"
+					class="campo campo-medio">
+			</div>
+			<button id="adicionar-paciente" class="boton bto-principal btn btn-primary">Adicionar</button>
+		</form>
+	</section>
+
+	<footer>
+        <img src="">
+        <p class="copyright">&copy Copyright Facundo Grondona - 2021</p>
+    </footer>
+
+	<script src="../js/calcular-imc.js"></script>
+	<script src="../js/form.js"></script>
+	<script src="../js/eliminar-paciente.js"></script>
+	<script src="../js/filtrar.js"></script>
+	<script src="../js/buscar-pacientes.js"></script>
+	
+	
+	<script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</body>
+
+</html>
